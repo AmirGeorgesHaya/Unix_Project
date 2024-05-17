@@ -1,26 +1,44 @@
 # Unix_Project
+Media Player Notification Project
+Written by: Amir-Georges Haya and Sen Bellotiny Donnisaint
+For Internet Programming Section 02 Winter 2024
+----------------------------------
 
-Step 1: Get your hands one a Rasberry Pi 4 Starter Kit. Not only does it come with the
-micro machine itself but also you get other stuff like Ventilation or humidity sensors, etc. 
+#Heaven Hearth Restaurant Website description
+The project is called "Heaven Hearth". A restaurant website that allows users (beginners or advanced)
+to view menus and book reservations easily. A user can even find the shcedule by just opening the homepage!More
+information and is available on the powerpoint.
 
-Step 2: If your starter kit doesn't come with a Micro-SD card, buy one. Usually an imager is available on the Micro SD card letting you have the full experience immedietly
+#Table of contents (TOC)
 
-Step 3:If OSMC is not installed in your Micro SD Card, Flash it and download OSMC since it's optimized for Media Centers. OSMC comes with  Kodi built-in whcih can simply your workload.
+-Requirements
 
-Step 4: After installation, the OSMC will ask you to connect to a netowrk, choose your country and languages, etc. Very easy to follow and it's like setting up a new PC or console. For any confusion, please follow these steps on the setup: https://www.youtube.com/watch?v=ngGkVd-_LP8&ab_channel=ETAPRIME
+To allow for the saving of client data, the web application requires accessibilty to
+localStorage
 
-Step 5 : Now that everything is running smoothly, you can go ahead and explore Kodi. You can download multiple add-ons that include games, music, videos, etc. For now, YouTube and any weather apps should work without any problems. Refer to previous link to check out ways to add add-ons
+A web app that supports high quality videos
 
-Step 6: Now while having OSMC turned on, Connect your own personal Debian-based desktop.
-If you don't have one, download VirtualBox on your Windows based computer and then download an ISO file from Debian to run the virtual desktop independently.
+Visual Studio or similar application to code the html, css files, JSON and JS.
 
-Step 7: Now in OSMC, enable SSH and copy down the IP Adress. 
+A console that has a higher pixel count than 200px for a better experience.
 
-Step 8: On your Debian Computer, go to the terminal and access the OSMC using the IP Address copies before.
+This website is highly optimized for a Google engine. Using anything other than this could result
+in a firewall access problem to the local storage
 
-Step 9: Create a .py script file that allows the OSMC to send you emails about your watch history. 
 
-Step 10: Make sure to give yourself permission to execute it for it
+-Configuration
 
-Step 11: Add a contab to run at 8 am everyday.
+Visual Studio Code is all needed for the making of the project.
+
+Troubleshooting & FAQ
+
+
+For any questions or feedback, please contact us at support@heavenhearth.com.
+
+- Creator and Maintainer
+
+Amir-Georges Haya
+
+
+
 

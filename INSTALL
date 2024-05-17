@@ -1,6 +1,105 @@
-Step 1: Get your hands one a Rasberry Pi 4 Starter Kit. Not only does it come with the micro machine itself but also you get other stuff like Ventilation or humidity sensors, etc.
+Step 1: Buy  the Raspberry Pi 4 starter kit:https://www.amazon.ca/Xute-Raspberry-Pi-Model-Cortex-A72/dp/B0CDBTPJYR
 
-Step 2: If your starter kit doesn't come with a Micro-SD card, buy one. Usually an imager is available on the Micro SD card letting you have the full experience immedietly
+Step 2: This Raspberry Pie comes with Kodi alreasy built-in. However we will flash it to have LibreELEC
+
+Step 3: Take your Micro SD Card and plug it in your SD card reader.
+
+Step 4:Plug the SD card reader in a USB-C port.
+
+Step 5: Go to the Raspberry Pi OS website and download the Windows version: https://www.raspberrypi.com/software/
+You'll find a pink button that says "Download for Windows"
+
+Step 6: Once you click the download button, the imager_1.8.5.exe should be downloaded in your download folder or whatever you chose.
+
+Step 7: Once you run the .exe file, it will ask you to download the Raspberry Pi imager OS.
+
+Step 8: Make sure to check "Run the Raspberry Pi Imager"
+
+Step 9: When clicking on the button "Finish", the Raspberry Pi Imager should run automatically.
+
+Step 10: In the Raspberry Pi app, you should see 3 buttons. Click the first one (Choose Device). This will prompt you to choose a Rasberry Pi. Since we have a Raspberry 4, choose that as Device.
+
+Step 11: Click the "Choose OS" button. Go to the Media player OS and choose LibreELEC. Once chosen, you only have option and it should be "LibreELEC (RPi4)"
+
+Step 12: In "Choose Storage" button, choose the correct micro SD card you want to flash.
+
+Step 13: Click "Next" and wait until it's done. Once done, it will ask you to remove the Micro SD card.
+
+Step 14: Unplug your the micro SD card and plug it into your Raspberry Pi.
+
+Step 15: Connect the Raspberry Pi to the power and connect the HDMI cable to the wanted monitor
+
+Step 16: On boot, click next until you arrive at the Networking menu. Configure your network if you are using wirelessly or else the Raspberry should automitcally reconize your Ethernet cable. If no network appear, try rebooting the system.
+
+Step 17: Clicking next will take you to the Sharing and Remote Access window. Turn on SSH since it will be used to connect a computer to the Media player easily.
+
+Step 18: Go to the system information and find the IP Address of your LibreELEC. 
+
+Step 19: Using a Linux-based system, go to the terminal and write this command. replace libreelec_ip with the IP address from the LibreElec
+
+ssh root@libreelec_ip
+
+Step 20: the password is libreelec by default. Make sure you also respon yes when they ask you for conifirmation of the connection
+
+Step 21: Next write this command to not only create the script, but also edit it.
+
+nano log_user_activity_email.py
+
+Step 22: Use this following code to recieve notifications of your viewing experience:
+
+#!/usr/bin/env python3
+import subprocess
+import datetime
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+# Function to send email
+def send_email(subject, body, sender_email, receiver_email, password, smtp_server, smtp_port):
+    message = MIMEMultipart()
+    message["From"] = sender_email
+    message["To"] = receiver_email
+    message["Subject"] = subject
+    message.attach(MIMEText(body, "plain"))
+    
+    with smtplib.SMTP(smtp_server, smtp_port) as server:
+        server.starttls()  # Start TLS encryption
+        server.login(sender_email, password)
+        server.sendmail(sender_email, receiver_email, message.as_string())
+
+# Get current time
+now = datetime.datetime.now()
+date_str = now.strftime("%Y-%m-%d %H:%M:%S")
+
+# Get user activity, using 'who' command
+result = subprocess.run(['who'], stdout=subprocess.PIPE)
+user_activity = result.stdout.decode('utf-8')
+
+# Email content
+subject = f"User Activity Log on {date_str}"
+body = f"Activity on {date_str}:\n{user_activity}\n"
+
+# Email credentials and server configuration for Gmail
+sender_email = "your-sender-email@gmail.com"  # Replace with your Gmail address
+receiver_email = "your-receiver-email@example.com"  # Replace with the recipient's email address
+password = amir_sen123. "your-email-password"  # Replace with your Gmail password or app-specific password
+smtp_server = "smtp.gmail.com"
+smtp_port = 587  # Use 587 for TLS
+
+# Send the email
+send_email(subject, body, sender_email, receiver_email, password, smtp_server, smtp_port)
+
+print("Activity log has been sent via email.")  # Optional: for manual run feedback
+
+Step 23: Replace the "your-sender-email@gmail.com" with sendoesamircle.gmail.com and use the password  and make your receiever email your personal email.
+
+Step 24: Press CTRL + O to confirm the script and press ENTER to save the files.
+
+Step 25: Make sure you can execute this file. For this, use this command:
+
+chmod +x log_user_activity_email.py
+
+Step 26: use this following the
 
 Step 3:If OSMC is not installed in your Micro SD Card, Flash it and download OSMC since it's optimized for Media Centers. OSMC comes with Kodi built-in whcih can simply your workload.
 

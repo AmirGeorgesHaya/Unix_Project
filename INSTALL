@@ -29,7 +29,7 @@ Step 14: Unplug your the micro SD card and plug it into your Raspberry Pi.
 
 Step 15: Connect the Raspberry Pi to the power and connect the HDMI cable to the wanted monitor
 
-Step 16: On boot, click next until you arrive at the Networking menu. Configure your network if you are using wirelessly or else the Raspberry should automitcally reconize your Ethernet cable. If no network appear, try rebooting the system.
+Step 16: On boot, go to system's LibreELEC to add the network. Configure your network if you are using wirelessly or else the Raspberry should automitcally reconize your Ethernet cable. If no network appear, try rebooting the system.
 
 Step 17: Clicking next will take you to the Sharing and Remote Access window. Turn on SSH since it will be used to connect a computer to the Media player easily.
 

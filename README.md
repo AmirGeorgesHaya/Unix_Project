@@ -18,7 +18,8 @@ We decided to finally scrap the notification part of the project since we were r
 # Materiel used
 For this project, we needed a Raspberry Pi 4 Starter kit that comes with a micro SD card and a SD Card reader. We always needed to buy an extra SD card since we wanted to compare both versions of Media Center and be able to review the look and feel of them.
 
-![Screenshot 2024-05-16 191917](https://github.com/AmirGeorgesHaya/Unix_Project/assets/129766673/08cf83a3-fe7d-480f-8aba-06c913f93b48) ![71w8uejw3hL _AC_SL1500_](https://github.com/AmirGeorgesHaya/Unix_Project/assets/129766673/70d1abeb-c3b0-4043-9cd1-dab65bbe6cb0)
+![Screenshot 2024-05-16 191917](https://github.com/AmirGeorgesHaya/Unix_Project/assets/129766673/08cf83a3-fe7d-480f-8aba-06c913f93b48) ![eseries_slider_512GB_1](https://github.com/AmirGeorgesHaya/Unix_Project/assets/129766673/3153385d-e5a9-4ebb-bb34-b91035d765b7)
+
 
 
 # Authors

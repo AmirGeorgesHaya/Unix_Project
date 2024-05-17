@@ -1,7 +1,7 @@
 Materiel used for this project
 ![Screenshot 2024-05-16 191917](https://github.com/AmirGeorgesHaya/Unix_Project/assets/129766673/08cf83a3-fe7d-480f-8aba-06c913f93b48) ![eseries_slider_512GB_1](https://github.com/AmirGeorgesHaya/Unix_Project/assets/129766673/3153385d-e5a9-4ebb-bb34-b91035d765b7)
 
-1: Buy  the Raspberry Pi 4 starter kit:https://www.amazon.ca/Xute-Raspberry-Pi-Model-Cortex-A72/dp/B0CDBTPJYR
+1: Buy  the Raspberry Pi 4 starter kit
 
 2: This Raspberry Pie comes with Kodi alreasy built-in. However we will flash it to have LibreELEC
 

@@ -99,22 +99,14 @@ Step 25: Make sure you can execute this file. For this, use this command:
 
 chmod +x log_user_activity_email.py
 
-Step 26: use this following the
+Step 26: use this following command to test the file and make sure theirs no errors. 
 
-Step 3:If OSMC is not installed in your Micro SD Card, Flash it and download OSMC since it's optimized for Media Centers. OSMC comes with Kodi built-in whcih can simply your workload.
+Step 27: use crontab to give a timer to your notification
 
-Step 4: After installation, the OSMC will ask you to connect to a netowrk, choose your country and languages, etc. Very easy to follow and it's like setting up a new PC or console. For any confusion, please follow these steps on the setup: https://www.youtube.com/watch?v=ngGkVd-_LP8&ab_channel=ETAPRIME
+crontab -e
 
-Step 5 : Now that everything is running smoothly, you can go ahead and explore Kodi. You can download multiple add-ons that include games, music, videos, etc. For now, YouTube and any weather apps should work without any problems. Refer to previous link to check out ways to add add-ons
+Step 28: in the crontab editor the first wo numbers showcase the time in a 24h format. in our example, it is 8 am. when you're done, click CTRL + O to save and click enter to confirm.a
 
-Step 6: Now while having OSMC turned on, Connect your own personal Debian-based desktop. If you don't have one, download VirtualBox on your Windows based computer and then download an ISO file from Debian to run the virtual desktop independently.
+0 8 * * * /usr/bin/python3 /path/to/your/log_user_activity_email.py
 
-Step 7: Now in OSMC, enable SSH and copy down the IP Adress.
-
-Step 8: On your Debian Computer, go to the terminal and access the OSMC using the IP Address copies before.
-
-Step 9: Create a .py script file that allows the OSMC to send you emails about your watch history.
-
-Step 10: Make sure to give yourself permission to execute it for it
-
-Step 11: Add a contab to run at 8 am everyday.
+Step 29: write "exit" to exit the connection with LibreELEC. When done everything is good and set up.

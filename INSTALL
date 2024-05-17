@@ -1,51 +1,51 @@
-Step 1: Buy  the Raspberry Pi 4 starter kit:https://www.amazon.ca/Xute-Raspberry-Pi-Model-Cortex-A72/dp/B0CDBTPJYR
+1: Buy  the Raspberry Pi 4 starter kit:https://www.amazon.ca/Xute-Raspberry-Pi-Model-Cortex-A72/dp/B0CDBTPJYR
 
-Step 2: This Raspberry Pie comes with Kodi alreasy built-in. However we will flash it to have LibreELEC
+2: This Raspberry Pie comes with Kodi alreasy built-in. However we will flash it to have LibreELEC
 
-Step 3: Take your Micro SD Card and plug it in your SD card reader.
+3: Take your Micro SD Card and plug it in your SD card reader.
 
-Step 4:Plug the SD card reader in a USB-C port.
+4:Plug the SD card reader in a USB-C port.
 
-Step 5: Go to the Raspberry Pi OS website and download the Windows version: https://www.raspberrypi.com/software/
+5: Go to the Raspberry Pi OS website and download the Windows version: https://www.raspberrypi.com/software/
 You'll find a pink button that says "Download for Windows"
 
-Step 6: Once you click the download button, the imager_1.8.5.exe should be downloaded in your download folder or whatever you chose.
+6: Once you click the download button, the imager_1.8.5.exe should be downloaded in your download folder or whatever you chose.
 
-Step 7: Once you run the .exe file, it will ask you to download the Raspberry Pi imager OS.
+7: Once you run the .exe file, it will ask you to download the Raspberry Pi imager OS.
 
-Step 8: Make sure to check "Run the Raspberry Pi Imager"
+8: Make sure to check "Run the Raspberry Pi Imager"
 
-Step 9: When clicking on the button "Finish", the Raspberry Pi Imager should run automatically.
+9: When clicking on the button "Finish", the Raspberry Pi Imager should run automatically.
 
-Step 10: In the Raspberry Pi app, you should see 3 buttons. Click the first one (Choose Device). This will prompt you to choose a Rasberry Pi. Since we have a Raspberry 4, choose that as Device.
+10: In the Raspberry Pi app, you should see 3 buttons. Click the first one (Choose Device). This will prompt you to choose a Rasberry Pi. Since we have a Raspberry 4, choose that as Device.
 
-Step 11: Click the "Choose OS" button. Go to the Media player OS and choose LibreELEC. Once chosen, you only have option and it should be "LibreELEC (RPi4)"
+11: Click the "Choose OS" button. Go to the Media player OS and choose LibreELEC. Once chosen, you only have option and it should be "LibreELEC (RPi4)"
 
-Step 12: In "Choose Storage" button, choose the correct micro SD card you want to flash.
+12: In "Choose Storage" button, choose the correct micro SD card you want to flash.
 
-Step 13: Click "Next" and wait until it's done. Once done, it will ask you to remove the Micro SD card.
+13: Click "Next" and wait until it's done. Once done, it will ask you to remove the Micro SD card.
 
-Step 14: Unplug your the micro SD card and plug it into your Raspberry Pi.
+14: Unplug your the micro SD card and plug it into your Raspberry Pi.
 
-Step 15: Connect the Raspberry Pi to the power and connect the HDMI cable to the wanted monitor
+15: Connect the Raspberry Pi to the power and connect the HDMI cable to the wanted monitor
 
-Step 16: On boot, go to system's LibreELEC to add the network. Configure your network if you are using wirelessly or else the Raspberry should automitcally reconize your Ethernet cable. If no network appear, try rebooting the system.
+16: On boot, go to system's LibreELEC to add the network. Configure your network if you are using wirelessly or else the Raspberry should automitcally reconize your Ethernet cable. If no network appear, try rebooting the system.
 
-Step 17: Clicking next will take you to the Sharing and Remote Access window. Turn on SSH since it will be used to connect a computer to the Media player easily.
+17: Clicking next will take you to the Sharing and Remote Access window. Turn on SSH since it will be used to connect a computer to the Media player easily.
 
-Step 18: Go to the system information and find the IP Address of your LibreELEC. 
+18: Go to the system information and find the IP Address of your LibreELEC. 
 
-Step 19: Using a Linux-based system, go to the terminal and write this command. replace libreelec_ip with the IP address from the LibreElec
+19: Using a Linux-based system, go to the terminal and write this command. replace libreelec_ip with the IP address from the LibreElec
 
 ssh root@libreelec_ip
 
-Step 20: the password is libreelec by default. Make sure you also respon yes when they ask you for conifirmation of the connection
+20: the password is libreelec by default. Make sure you also respon yes when they ask you for conifirmation of the connection
 
-Step 21: Next write this command to not only create the script, but also edit it.
+21: Next write this command to not only create the script, but also edit it.
 
 nano log_user_activity_email.py
 
-Step 22: Use this following code to recieve notifications of your viewing experience:
+22: Use this following code to recieve notifications of your viewing experience:
 
 #!/usr/bin/env python3
 import subprocess
@@ -91,22 +91,22 @@ send_email(subject, body, sender_email, receiver_email, password, smtp_server, s
 
 print("Activity log has been sent via email.")  # Optional: for manual run feedback
 
-Step 23: Replace the "your-sender-email@gmail.com" with sendoesamircle.gmail.com and use the password  and make your receiever email your personal email.
+23: Replace the "your-sender-email@gmail.com" with sendoesamircle.gmail.com and use the password  and make your receiever email your personal email.
 
-Step 24: Press CTRL + O to confirm the script and press ENTER to save the files.
+24: Press CTRL + O to confirm the script and press ENTER to save the files.
 
-Step 25: Make sure you can execute this file. For this, use this command:
+25: Make sure you can execute this file. For this, use this command:
 
 chmod +x log_user_activity_email.py
 
-Step 26: use this following command to test the file and make sure theirs no errors. 
+26: use this following command to test the file and make sure theirs no errors. 
 
-Step 27: use crontab to give a timer to your notification
+27: use crontab to give a timer to your notification
 
 crontab -e
 
-Step 28: in the crontab editor the first wo numbers showcase the time in a 24h format. in our example, it is 8 am. when you're done, click CTRL + O to save and click enter to confirm.a
+28: in the crontab editor the first wo numbers showcase the time in a 24h format. in our example, it is 8 am. when you're done, click CTRL + O to save and click enter to confirm.a
 
 0 8 * * * /usr/bin/python3 /path/to/your/log_user_activity_email.py
 
-Step 29: write "exit" to exit the connection with LibreELEC. When done everything is good and set up.
+29: write "exit" to exit the connection with LibreELEC. When done everything is good and set up.

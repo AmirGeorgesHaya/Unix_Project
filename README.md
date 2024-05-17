@@ -1,5 +1,5 @@
 # Unix Project
-Media Player Notification Project
+Media Center Notification Project
 Written by: Amir-Georges Haya and Sen Bellotiny Donnisaint
 For Internet Programming Section 02 Winter 2024
 ----------------------------------

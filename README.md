@@ -11,7 +11,7 @@ Our project aims to create a Media Center using a Linux System with a Raspberry 
 In the beginning of this project, we decided to try with OSMC media Center since it had the most compatibility with scripts and everything. We felt as though not only was OSMC very old in its design. The script was also not working so we decided to scrap OSMC and try again with a new one... LibreELEC. This Media Center felt more recent and very UI friendly. However, this hasn't stopped us from having issues with the scripts.
 
 # Modifications
-We decided to finally scrap the notification part of the project since we were running to alot of hassles and it was not working as intended. 
+We decided to finally scrap the notification part of the project since we were running to alot of hassles as mentionned in the problems occured and it was not working as intended. 
 
 
 

@@ -1,1 +1,2 @@
-esfsefsefefef
+# Starting point
+This project started as a Media Center that would send the user a notification once a day. These notifications would show the user its viewing/activity history. When brainstorming, this was our first idea to create since we've seen it as an example during the lectures and thought it would be interesting to tackle this idea. We first decided about which version of Raspberry Pi we needed. Getting the most recent one was in our minds but we wanted this Rapberry to be useful in the long run. We basically wanted to ba able to use it during IoT classes as well. Our teacher talked to the IoT teacher and let us know that the IoT class used Raspberry Pi 4 for the semester. So we decided to buy a starting kit online : 

@@ -80,6 +80,9 @@ Since this wouldn't work, we decided to try it with LibreELEC, however after usi
 ## Review project list
 After reviewing everything, we decided to go back to OSMC and try it again with different script. We decided to test a script first. The test consists of making shuffled playlists to be sent to us. Looking back our our steps previously, all we did was add a script and also modify the pre-existing ones. Basically making project have two features instead of one since the test was successful. 
 
+
+This makes it so we would get shuffled playlists everytime; however, we realized that the videos were not randomized and that it was the same video everytime. In hindsight, this wasn't a bad thing since all we were trying to do was to make OSMC send emails to us and it suceeded in doing so. We got emails saying that a random playlist was created, but it just led to the same video. We still call this test a success
+
 ### Updated Code
 ```
 import xbmc
@@ -153,11 +156,78 @@ if __name__ == "__main__":
 
 
 ```
-This makes it so we would get shuffled playlists everytime.
 
+This was the script done in order for the user (us) to recieve emails by  OSMC. We received about 9 notifications until we stopped it completly or else it would put our emails into a spam folder.
+This sadly happened actually and it stopped sending messages to us since. OSMC noticed that it was going into a spam folder and blocked itself from sending it again.
+```
 ### Remade Code
+import os
+import re
+import smtplib
+from datetime import datetime
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
+# Function to parse the Kodi log file
+log_file_path = '/home/osmc/.kodi/temp/kodi.log'
+def parse_kodi_log(log_file_path):
+	if not os.path.exists(log_file_path):
+    	print(f"Log file not found: {log_file_path}")
+    	return {}
 
+	running_lines = []
 
+	with open(log_file_path, 'r') as log_file:
+    	for line in log_file:
+        	if "plugin" in line:
+            	if len(running_lines) >= 6:
+                	running_lines.pop(0)
+            	running_lines.append(line.strip()+"\n")
+
+	return running_lines
+# Function to send email
+def send_email(email_address, email_password, recipients, subject, body):
+	msg = MIMEMultipart()
+	msg['From'] = email_address
+	msg['To'] = ', '.join(recipients)
+	msg['Subject'] = subject
+
+	body = body.replace("\n", "\r\n")
+
+	msg.attach(MIMEText(body, 'plain'))
+
+try:
+    	with smtplib.SMTP('smtp.office365.com', 587) as smtp:
+        	smtp.starttls()
+        	smtp.login(email_address, email_password)
+        	smtp.send_message(msg)
+    	print(f"Email sent to {', '.join(recipients)}")
+	except Exception as e:
+    	print(f"Failed to send email: {e}")
+
+# Main function
+def main():
+	email_address = 'senamiracle@outlook.com'
+	email_password = 'amir_sen123'
+	recipients = ['musither@gmail.com', 'kirbywerby482@gmail.com', 'senamiracle@outlook.com']
+	log_file_path = '/home/osmc/.kodi/temp/kodi.log'  # Update this path if necessary
+
+	accessed_addons = parse_kodi_log(log_file_path)
+
+	if accessed_addons:
+    	body = "Programs that were running in the log:\n\n"
+    	for line in accessed_addons:
+        	body += f"- {line}\n"
+	else:
+    	body = "No programs were found running in the log."
+
+	send_email(email_address, email_password, recipients, "Kodi Accessed Add-ons", body)
+
+if __name__ == "__main__":
+	main()
+
+```
+Here is how the error looks like:
+![image](https://github.com/AmirGeorgesHaya/Unix_Project/assets/129766673/ef0ea3f3-1fa7-45ea-9755-199001a61c66)
 
 

@@ -27,11 +27,11 @@ Materiel used for this project:
 
 18: Go to the system information and find the IP Address of your OSMC. 
 
-19: Using a Linux-based system, go to the terminal and write this command. replace libreelec_ip with the IP address from the OSMC
+19: Using a Linux-based system, go to the terminal and write this command. replace osmc_ip with the IP address from the OSMC
 
-ssh root@osmc_ip
+ssh osmc@osmc_ip
 
-20: the password is osmc by default. Make sure you also respon yes when they ask you for conifirmation of the connection
+20: The password is osmc by default. Make sure you also respon yes when they ask you for conifirmation of the connection
 
 21: Next write this command to not only create the script, but also edit it.
 
@@ -39,66 +39,73 @@ nano activity_log_file.py
 
 22: Use this following code to recieve notifications of your viewing experience:
 
-#!/usr/bin/env python3
-import subprocess
-import datetime
+import os
+import re
 import smtplib
-from email.mime.text import MIMEText
+from datetime import datetime
 from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 # Function to send email
-def send_email(subject, body, sender_email, receiver_email, password, smtp_server, smtp_port):
-    message = MIMEMultipart()
-    message["From"] = sender_email
-    message["To"] = receiver_email
-    message["Subject"] = subject
-    message.attach(MIMEText(body, "plain"))
-    
-    with smtplib.SMTP(smtp_server, smtp_port) as server:
-        server.starttls()  # Start TLS encryption
-        server.login(sender_email, password)
-        server.sendmail(sender_email, receiver_email, message.as_string())
+def send_email(email_address, email_password, recipients, subject, body):
+	msg = MIMEMultipart()
+	msg['From'] = email_address
+	msg['To'] = ', '.join(recipients)
+	msg['Subject'] = subject
 
-# Get current time
-now = datetime.datetime.now()
-date_str = now.strftime("%Y-%m-%d %H:%M:%S")
+	body = body.replace("\n", "\r\n")
 
-# Get user activity, using 'who' command
-result = subprocess.run(['who'], stdout=subprocess.PIPE)
-user_activity = result.stdout.decode('utf-8')
+	msg.attach(MIMEText(body, 'plain'))
 
-# Email content
-subject = f"User Activity Log on {date_str}"
-body = f"Activity on {date_str}:\n{user_activity}\n"
+try:
+    	with smtplib.SMTP('smtp.office365.com', 587) as smtp:
+        	smtp.starttls()
+        	smtp.login(email_address, email_password)
+        	smtp.send_message(msg)
+    	print(f"Email sent to {', '.join(recipients)}")
+	except Exception as e:
+    	print(f"Failed to send email: {e}")
 
-# Email credentials and server configuration for Gmail
-sender_email = "your-sender-email@gmail.com"  # Replace with your Gmail address
-receiver_email = "your-receiver-email@example.com"  # Replace with the recipient's email address
-password = amir_sen123. "your-email-password"  # Replace with your Gmail password or app-specific password
-smtp_server = "smtp.gmail.com"
-smtp_port = 587  # Use 587 for TLS
+# Main function
+def main():
+	email_address = 'YOUR OUTLOOK EMAIL'
+	email_password = 'YOUR OUTLOOK EMAIL'S PASSWORD'
+	recipients = ['example@example.com', 'example@example.com']
+	log_file_path = '/home/osmc/.kodi/temp/kodi.log'  # Update this path if necessary
 
-# Send the email
-send_email(subject, body, sender_email, receiver_email, password, smtp_server, smtp_port)
+	accessed_addons = parse_kodi_log(log_file_path)
 
-print("Activity log has been sent via email.")  # Optional: for manual run feedback
+	if accessed_addons:
+    	body = "Programs that were running in the log:\n\n"
+    	for line in accessed_addons:
+        	body += f"- {line}\n"
+	else:
+    	body = "No programs were found running in the log."
 
-23: Replace the "your-sender-email@gmail.com" with sendoesamircle.gmail.com and use the password  and make your receiever email your personal email.
+	send_email(email_address, email_password, recipients, "Kodi Accessed Add-ons", body)
 
-24: Press CTRL + O to confirm the script and press ENTER to save the files.
+if __name__ == "__main__":
+	main()
+
+
+23: Replace every email fill-in (YOUR OUTLOOK EMAIL, PASSWORD, example@example.com).
+
+24: Press CTRL + X -> Y -> ENTER to confirm the script and press ENTER to save the files.
 
 25: Make sure you can execute this file. For this, use this command:
 
-chmod +x log_user_activity_email.py
+chmod +x activity_log_file.py
 
 26: use this following command to test the file and make sure theirs no errors. 
+
+python activity_log_file.py
 
 27: use crontab to give a timer to your notification
 
 crontab -e
 
-28: in the crontab editor the first wo numbers showcase the time in a 24h format. in our example, it is 8 am. when you're done, click CTRL + O to save and click enter to confirm.a
+28: in the crontab editor the first wo numbers showcase the time in a 24h format. in our example, it is 8 am. when you're done, click CTRL + X to save and click enter to confirm.a
 
-0 8 * * * /usr/bin/python3 /path/to/your/log_user_activity_email.py
+0 8 * * * /usr/bin/python3 /path/to/your/activity_log_file.py
 
-29: write "exit" to exit the connection with LibreELEC. When done everything is good and set up.
+29: write "exit" to exit the connection with OSMC. When done everything is good and set up.

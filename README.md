@@ -14,7 +14,7 @@ https://github.com/AmirGeorgesHaya/Unix_Project/blob/main/LICENSE
 
 # Expected output
 
-![Screenshot 2024-05-22 at 23 58 01](https://github.com/AmirGeorgesHaya/Unix_Project/assets/129766673/e137c21e-c19b-42ff-86fd-9eacbb4c2003)
+![image](https://github.com/AmirGeorgesHaya/Unix_Project/assets/129766673/a0136808-3954-42ce-8a73-5c344c8504f5)
 
 # Authors and Sources
 Done in collaboration with Amir-Georges Haya, Sen Bellotiny Donissaint.

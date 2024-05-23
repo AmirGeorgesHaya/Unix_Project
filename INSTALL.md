@@ -104,8 +104,8 @@ python activity_log_file.py
 
 crontab -e
 
-28: in the crontab editor the first wo numbers showcase the time in a 24h format. in our example, it is 8 am. when you're done, click CTRL + X to save and click enter to confirm.a
+22: in the crontab editor the first wo numbers showcase the time in a 24h format. in our example, it is 8 am. when you're done, click CTRL + X to save and click enter to confirm.a
 
 0 8 * * * /usr/bin/python3 /path/to/your/activity_log_file.py
 
-29: write "exit" to exit the connection with OSMC. When done everything is good and set up.
+23: write "exit" to exit the connection with OSMC. When done everything is good and set up.

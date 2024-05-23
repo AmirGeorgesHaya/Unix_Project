@@ -5,50 +5,37 @@ Materiel used for this project:
 
 1: Buy  the Raspberry Pi 4 starter kit
 
-2: This Raspberry Pie comes with Kodi alreasy built-in. However we will flash it to have LibreELEC
+2: This Raspberry Pie comes with Kodi alreasy built-in. However we will flash it to have OSMC.
 
-3: Take your Micro SD Card and plug it in your SD card reader.
+3: After flashing, take your Micro SD Card and plug it in your SD card reader.
 
 4:Plug the SD card reader in a USB-C port.
 
-5: Go to the Raspberry Pi OS website and download the Windows version: https://www.raspberrypi.com/software/
-You'll find a pink button that says "Download for Windows"
+5:  Go to osmc.tv to get the installer matching your pc. After intsalling and running it, a few questions on the setup and flashing will be asked in advanced.
 
-6: Once you click the download button, the imager_1.8.5.exe should be downloaded in your download folder or whatever you chose.
+6: Make sure to choose the current pi your using, the version you want to install, what will you be flashing it on(E.g. SD Card, USB stick, NFS share, etc..), and what device (E.g. D:/Kingston).
 
-7: Once you run the .exe file, it will ask you to download the Raspberry Pi imager OS.
-
-8: Make sure to check "Run the Raspberry Pi Imager"
-
-9: When clicking on the button "Finish", the Raspberry Pi Imager should run automatically.
-
-10: In the Raspberry Pi app, you should see 3 buttons. Click the first one (Choose Device). This will prompt you to choose a Rasberry Pi. Since we have a Raspberry 4, choose that as Device.
-
-11: Click the "Choose OS" button. Go to the Media player OS and choose LibreELEC. Once chosen, you only have option and it should be "LibreELEC (RPi4)"
-
-12: In "Choose Storage" button, choose the correct micro SD card you want to flash.
-
-13: Click "Next" and wait until it's done. Once done, it will ask you to remove the Micro SD card.
+7: It will ask a few more questions about your set up, such as choosing between a wired or wireless connection and such.
 
 14: Unplug your the micro SD card and plug it into your Raspberry Pi.
 
 15: Connect the Raspberry Pi to the power and connect the HDMI cable to the wanted monitor
 
-16: On boot, go to system's LibreELEC to add the network. Configure your network if you are using wirelessly or else the Raspberry should automitcally reconize your Ethernet cable. If no network appear, try rebooting the system.
+16: On boot, go to system's OSMC to add the network. Configure your network if you are using wirelessly or else the Raspberry should automitcally reconize your Ethernet cable. If no network appear, try rebooting the system.
 
-17: Clicking next will take you to the Sharing and Remote Access window. Turn on SSH since it will be used to connect a computer to the Media player easily.
+17: Go to System -> My OSMC -> Services. Turn on SSH since it will be used to connect a computer to the Media player easily.
 
-18: Go to the system information and find the IP Address of your LibreELEC. 
+18: Go to the system information and find the IP Address of your OSMC. 
 
-19: Using a Linux-based system, go to the terminal and write this command. replace libreelec_ip with the IP address from the LibreElec
+19: Using a Linux-based system, go to the terminal and write this command. replace libreelec_ip with the IP address from the OSMC
 
-ssh root@libreelec_ip
+ssh root@osmc_ip
 
-20: the password is libreelec by default. Make sure you also respon yes when they ask you for conifirmation of the connection
+20: the password is osmc by default. Make sure you also respon yes when they ask you for conifirmation of the connection
 
 21: Next write this command to not only create the script, but also edit it.
 
-nano log_user_activity_email.py
+nano activity_log_file.py
 
 22: Use this following code to recieve notifications of your viewing experience:
 

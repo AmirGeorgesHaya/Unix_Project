@@ -1,7 +1,7 @@
 Materiel used for this project:
 
 
-![Screenshot 2024-05-16 191917](https://github.com/AmirGeorgesHaya/Unix_Project/assets/129766673/08cf83a3-fe7d-480f-8aba-06c913f93b48) ![eseries_slider_512GB_1](https://github.com/AmirGeorgesHaya/Unix_Project/assets/129766673/3153385d-e5a9-4ebb-bb34-b91035d765b7)
+![Screenshot 2024-05-16 191917](https://github.com/AmirGeorgesHaya/Unix_Project/assets/129766673/08cf83a3-fe7d-480f-8aba-06c913f93b48)
 
 1: Buy  the Raspberry Pi 4 starter kit
 
@@ -17,27 +17,27 @@ Materiel used for this project:
 
 7: It will ask a few more questions about your set up, such as choosing between a wired or wireless connection and such.
 
-14: Unplug your the micro SD card and plug it into your Raspberry Pi.
+8: Unplug your the micro SD card and plug it into your Raspberry Pi.
 
-15: Connect the Raspberry Pi to the power and connect the HDMI cable to the wanted monitor
+9: Connect the Raspberry Pi to the power and connect the HDMI cable to the wanted monitor
 
-16: On boot, go to system's OSMC to add the network. Configure your network if you are using wirelessly or else the Raspberry should automitcally reconize your Ethernet cable. If no network appear, try rebooting the system.
+10: On boot, go to system's OSMC to add the network. Configure your network if you are using wirelessly or else the Raspberry should automitcally reconize your Ethernet cable. If no network appear, try rebooting the system.
 
-17: Go to System -> My OSMC -> Services. Turn on SSH since it will be used to connect a computer to the Media player easily.
+11: Go to System -> My OSMC -> Services. Turn on SSH since it will be used to connect a computer to the Media player easily.
 
-18: Go to the system information and find the IP Address of your OSMC. 
+12: Go to the system information and find the IP Address of your OSMC. 
 
-19: Using a Linux-based system, go to the terminal and write this command. replace osmc_ip with the IP address from the OSMC
+13: Using a Linux-based system, go to the terminal and write this command. replace osmc_ip with the IP address from the OSMC
 
 ssh osmc@osmc_ip
 
-20: The password is osmc by default. Make sure you also respon yes when they ask you for conifirmation of the connection
+14: The password is osmc by default. Make sure you also respon yes when they ask you for conifirmation of the connection
 
-21: Next write this command to not only create the script, but also edit it.
+15: Next write this command to not only create the script, but also edit it.
 
 nano activity_log_file.py
 
-22: Use this following code to recieve notifications of your viewing experience:
+16: Use this following code to recieve notifications of your viewing experience:
 
 import os
 import re
@@ -88,19 +88,19 @@ if __name__ == "__main__":
 	main()
 
 
-23: Replace every email fill-in (YOUR OUTLOOK EMAIL, PASSWORD, example@example.com).
+17: Replace every email fill-in (YOUR OUTLOOK EMAIL, PASSWORD, example@example.com).
 
-24: Press CTRL + X -> Y -> ENTER to confirm the script and press ENTER to save the files.
+18: Press CTRL + X -> Y -> ENTER to confirm the script and press ENTER to save the files.
 
-25: Make sure you can execute this file. For this, use this command:
+19: Make sure you can execute this file. For this, use this command:
 
 chmod +x activity_log_file.py
 
-26: use this following command to test the file and make sure theirs no errors. 
+20: use this following command to test the file and make sure theirs no errors. 
 
 python activity_log_file.py
 
-27: use crontab to give a timer to your notification
+21: use crontab to give a timer to your notification
 
 crontab -e
 

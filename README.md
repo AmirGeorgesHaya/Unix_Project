@@ -1,7 +1,4 @@
 # Media Center
-Written by: Amir-Georges Haya and Sen Bellotiny Donnisaint
-For Unix Winter 2024
-
 # Project Description
 Our project aims to create a Media Center using a Linux System with a Raspberry Pi. To differentiate our Media Center from others, we plan to send users an email listing the media they have watched after one day. We are primarily using LibreELEC for this project, but we have also experimented with OSMC. The notifications are made possible through Python scripts, ensuring users receive timely updates about their viewing history.
 

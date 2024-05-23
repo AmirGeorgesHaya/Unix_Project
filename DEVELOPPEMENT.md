@@ -78,6 +78,85 @@ Sadly, after configuring it, we were not able to get any notifications to work. 
 Since this wouldn't work, we decided to try it with LibreELEC, however after using the same configuration as before, we realized that LibreELEC wasn't compatible with Debian. Sadly, this meant that most basic commands on Debian would not register once we connected to LibreELEC. Commands such as su- or sudo would not even exist and can't be downloaded. Even though we really liked the UI provided by LibreELEC, it had too many problems: The time and date were not synchronized with real date and time which lead to media related problems. Some YouTube videos did not exist after a certain date. It was acting like the Internet Explorer.
 
 ## Review project list
+After reviewing everything, we decided to go back to OSMC and try it again with different script. We decided to test a script first. The test consists of making shuffled playlists to be sent to us. Looking back our our steps previously, all we did was add a script and also modify the pre-existing ones. Basically making project have two features instead of one since the test was successful. 
+
+### Updated Code
+```
+import xbmc
+import xbmcgui
+import xbmcplugin
+import random
+from pytube import Playlist
+
+# Function to send a shuffled list via email
+def send_shuffled_list_via_email(email_address, email_password, recipients, shuffled_list):
+    import smtplib
+    from email.mime.multipart import MIMEMultipart
+    from email.mime.text import MIMEText
+
+    # Shuffle the list
+    random.shuffle(shuffled_list)
+
+    # Create the email message
+    msg = MIMEMultipart()
+    msg['From'] = email_address
+    msg['To'] = ', '.join(recipients)
+    msg['Subject'] = 'Shuffled Playlist'
+
+    # Convert the shuffled list to a string
+    shuffled_list_str = '\n'.join(shuffled_list)
+
+    # Add the shuffled list to the email body
+    body = f"The shuffled playlist order is:\n\n{shuffled_list_str}"
+    msg.attach(MIMEText(body, 'plain'))
+
+    # Connect to SMTP server and send the email
+    with smtplib.SMTP('smtp.office365.com', 587) as smtp:
+        smtp.starttls()
+        smtp.login(email_address, email_password)
+        smtp.send_message(msg)
+
+# Function to play a shuffled playlist in the YouTube add-on
+def play_shuffled_playlist_in_kodi(video_urls):
+    playlist = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
+    playlist.clear()
+    for video_url in video_urls:
+        listitem = xbmcgui.ListItem(path=video_url)
+        playlist.add(video_url, listitem)
+    xbmc.Player().play(playlist)
+
+# Main function
+def main():
+    # Email configuration
+    email_address = '******@outlook.com'  # Fill in with your Outlook email address
+    email_password = '******'  # Fill in with your Outlook email password
+    recipients = [donissaint13@gmail.com']  # Fill in with actual recipient email addresses
+
+    # Predefined YouTube playlist URL
+    playlist_url = "https://www.youtube.com/playlist?list=PLcZCyfhxwUBo376IvSmasg_WmC8LkPeVW"
+
+    # Fetch the playlist and extract video URLs
+    playlist = Playlist(playlist_url)
+    video_urls = [video.watch_url for video in playlist.videos]
+
+    # Send the shuffled playlist via email
+    send_shuffled_list_via_email(email_address, email_password, recipients, video_urls)
+
+    # Shuffle the video URLs before playing
+    random.shuffle(video_urls)
+
+    # Play the shuffled playlist in Kodi
+    play_shuffled_playlist_in_kodi(video_urls)
+
+if __name__ == "__main__":
+    main()
+
+
+```
+This makes it so we would get shuffled playlists everytime.
+
+### Remade Code
+
 
 
 

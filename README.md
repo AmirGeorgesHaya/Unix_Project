@@ -6,6 +6,9 @@ Our project aims to create a Media Center using a Linux System with a Raspberry 
 For this project, we needed a Raspberry Pi 4 Starter kit that comes with a micro SD card and a SD Card reader. We always needed to buy an extra SD card since we wanted to compare both versions of Media Center and be able to review the look and feel of them.
 - Raspberry Pi 4 starter kit
 
+# Further Enhancements
+In the future we would like to make it so that the OSMC doesn't recognize as spam and block itself from sending a message.
+
 # Licensing
 https://github.com/AmirGeorgesHaya/Unix_Project/blob/main/LICENSE
 
@@ -14,7 +17,7 @@ https://github.com/AmirGeorgesHaya/Unix_Project/blob/main/LICENSE
 ![Screenshot 2024-05-22 at 23 58 01](https://github.com/AmirGeorgesHaya/Unix_Project/assets/129766673/e137c21e-c19b-42ff-86fd-9eacbb4c2003)
 
 # Authors and Sources
-Done in collaboration with Amir-Georges Haya, Sen Bellotiny Donissaint
+Done in collaboration with Amir-Georges Haya, Sen Bellotiny Donissaint.
 
 
 

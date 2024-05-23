@@ -228,6 +228,7 @@ if __name__ == "__main__":
 
 ```
 Here is how the error looks like:
+
 ![image](https://github.com/AmirGeorgesHaya/Unix_Project/assets/129766673/ef0ea3f3-1fa7-45ea-9755-199001a61c66)
 
 

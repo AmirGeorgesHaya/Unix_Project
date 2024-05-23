@@ -10,7 +10,7 @@ Since this is supposed to be a Media Center that would send notifications to the
 
 Connection to the SSH. The password is the password that you used to log in. If you don't have a password, the default password was: osmc.
 ```
-ssh root@libreelec_ip
+ssh osmc@osmc_ip
 ```
 
 This was the script used.
@@ -78,12 +78,20 @@ Sadly, after configuring it, we were not able to get any notifications to work. 
 Since this wouldn't work, we decided to try it with LibreELEC, however after using the same configuration as before, we realized that LibreELEC wasn't compatible with Debian. Sadly, this meant that most basic commands on Debian would not register once we connected to LibreELEC. Commands such as su- or sudo would not even exist and can't be downloaded. Even though we really liked the UI provided by LibreELEC, it had too many problems: The time and date were not synchronized with real date and time which lead to media related problems. Some YouTube videos did not exist after a certain date. It was acting like the Internet Explorer.
 
 ## Review project list
-After reviewing everything, we decided to go back to OSMC and try it again with different script. We decided to test a script first. The test consists of making shuffled playlists to be sent to us. Looking back our our steps previously, all we did was add a script and also modify the pre-existing ones. Basically making project have two features instead of one since the test was successful. 
+After reviewing everything, we decided to go back to OSMC and try it again with different script. We decided to test a script first. The test consists of making shuffled playlists to be sent to us. Looking back our our steps previously, all we did was add a script and also modify the pre-existing ones. Basically making project have two features instead of one since the test was successful. The script would've also sent a playlist to be shuffled on youtube plugin on the raspberrybi. Unfortunately that didn't turn out as we hoped as youtube ang gmail have multitudes of security that forbid the techniques we used.
 
 
 This makes it so we would get shuffled playlists everytime; however, we realized that the videos were not randomized and that it was the same video everytime. In hindsight, this wasn't a bad thing since all we were trying to do was to make OSMC send emails to us and it suceeded in doing so. We got emails saying that a random playlist was created, but it just led to the same video. We still call this test a success.
 
-### Updated Code
+### Updated Code which does work for OSMC but only sends an email with the playlist
+
+```
+ssh root@libreelec_ip
+
+nano shuffled_playlist.py
+
+```
+
 ```
 import xbmc
 import xbmcgui
@@ -157,8 +165,8 @@ if __name__ == "__main__":
 
 ```
 
-This was the script done in order for the user (us) to recieve emails by  OSMC. We received about 9 notifications until we stopped it completly or else it would put our emails into a spam folder.
-This sadly happened actually and it stopped sending messages to us since. OSMC noticed that it was going into a spam folder and blocked itself from sending it again.
+This was the script done in order for the user (us) to recieve emails by  OSMC. We received about 15 notifications until we stopped it completly or else it would put our emails into a spam folder.
+This sadly happened actually and it stopped sending messages to us since. OSMC noticed that it was going into a spam folder and blocked itself from sending it again. This code fetched all lines in kodi.log that included the keyword "plugin" used for finding all plugins running. We limited those lines to the latest 6 one as kodi.log contains all logs from the beginning.
 ```
 ### Remade Code
 import os

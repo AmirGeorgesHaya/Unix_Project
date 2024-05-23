@@ -81,7 +81,7 @@ Since this wouldn't work, we decided to try it with LibreELEC, however after usi
 After reviewing everything, we decided to go back to OSMC and try it again with different script. We decided to test a script first. The test consists of making shuffled playlists to be sent to us. Looking back our our steps previously, all we did was add a script and also modify the pre-existing ones. Basically making project have two features instead of one since the test was successful. 
 
 
-This makes it so we would get shuffled playlists everytime; however, we realized that the videos were not randomized and that it was the same video everytime. In hindsight, this wasn't a bad thing since all we were trying to do was to make OSMC send emails to us and it suceeded in doing so. We got emails saying that a random playlist was created, but it just led to the same video. We still call this test a success
+This makes it so we would get shuffled playlists everytime; however, we realized that the videos were not randomized and that it was the same video everytime. In hindsight, this wasn't a bad thing since all we were trying to do was to make OSMC send emails to us and it suceeded in doing so. We got emails saying that a random playlist was created, but it just led to the same video. We still call this test a success.
 
 ### Updated Code
 ```
